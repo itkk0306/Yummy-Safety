@@ -1,0 +1,27 @@
+
+<main>
+    <section>
+        <div class = "region-name">
+            서울
+        </div>
+
+        <div class = "ys-list">
+            <% restaurants.forEach((restaurant) => { %>
+                <div class = "restaurant-container">
+                    <div class = "restaurant-name">
+                        <strong><%= restaurant.name %></strong>
+                    </div>
+
+                    <div class = "yum-btn">냠</div>
+                    <div class = "restaurant-type"><%= restaurant.type_detail %></div>
+                    <div class = "restaurant-phoneNum"><%= restaurant.telephone %></div>
+                    <div class = "restaurant-addr"><%= restaurant.address %></div>
+                    <div class = "restaurant-review">HI</div>
+                </div>
+
+            <% }); %>
+
+        </div>
+    </section>
+
+</main>

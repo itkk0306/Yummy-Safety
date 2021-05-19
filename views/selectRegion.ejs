@@ -1,0 +1,23 @@
+<main>
+    <section>
+        <div class="menu-name">
+            지역 선택
+        </div>
+
+        <div class="sidenav">
+            <% restaurants.forEach((i) => { %>
+                <button class="dropdown-btn">
+                    <%= i.city %>
+                    <i class="fa fa-caret-down"></i>
+                </button>
+
+                <div class="dropdown-container">
+                    <% i.town.forEach((j) => { %>
+                        <a href="/?city=<%= i.city %>&town=<%= j%>"> <%= j %> </a>
+                    <% }); %>
+                </div>
+            <% }); %>
+        </div>
+    </section>
+</main>
+
