@@ -13,7 +13,7 @@
 
                 <div class="dropdown-container">
                     <% i.town.forEach((j) => { %>
-                        <a href="/?city=<%= i.city %>&town=<%= j%>"> <%= j %> </a>
+                        <a href="/index?city=<%= i.city %>&town=<%= j%>&offset=<%=0%>"> <%= j %> </a>
                     <% }); %>
                 </div>
             <% }); %>

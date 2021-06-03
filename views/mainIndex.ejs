@@ -1,0 +1,42 @@
+<section>
+    <div class = "region-name">
+        <%= restaurants.map(row => row.city)[0] %>
+    </div>
+    <div class = "gu-name">
+        <%= restaurants.map(row => row.town)[0] %>
+    </div>
+    <div class = "ys-list">
+        <% restaurants.forEach((restaurant) => { %>
+            <div class = "restaurant-container">
+                <div class = "restaurant-name">
+                    <a href="https://map.naver.com/v5/search/<%= restaurants.map(row => row.town)[0] %> <%= restaurant.name %>"><strong><%= restaurant.name %></strong></a>
+                </div>
+
+                <a href="https://www.naver.com/"><div class = "yum-btn">냠</div></a>
+                <div class = "restaurant-type"><%= restaurant.type_detail %></div>
+                <div class = "restaurant-phoneNum"><%= restaurant.telephone %></div>
+                <div class = "restaurant-addr"><a href="https://map.naver.com/v5/search/<%= restaurant.address %>"><%= restaurant.address %></a></div>
+                <a href="https://www.naver.com/"><div class = "restaurant-review">후기</div></a>
+            </div>
+        <% }); %>
+    </div>
+</section>
+
+<!--<main>-->
+<!--    <section>-->
+
+<!--        <div class="menu-name">-->
+<!--            메인 인덱스에 대해-->
+<!--        </div>-->
+<!--        <div class="about-ys-text">-->
+<!--            - 농림축산식품부와 지자체들이 선별한 다음 3대 위생 원칙을 우수하게 지키는 식당을 말합니다. <br><br>-->
+
+<!--            ❶ 덜어먹기 가능한 도구 비치・제공 : 1인 덜어먹기 가능한 접시, 집게, 국자 등 제공(1인 반상 제공 및 개인용 반찬을 제공하는 경우 포함)-->
+<!--            <br><br>-->
+<!--            ❷ 위생적인 수저 관리 : 개별포장 수저 제공, 개인 수저 사전 비치 등의 방식으로 수저 관리를 위생적으로 하고 있는지 여부-->
+<!--            <br><br>-->
+<!--            ❸ 종사자 마스크 착용 : 식당 종사자가 위생, 보건, 투명 등 다양한 형태의 마스크를 쓰고 조리, 손님 응대 등을 실시하는지 여부-->
+<!--            <br><br>-->
+<!--        </div>-->
+<!--    </section>-->
+<!--</main>-->

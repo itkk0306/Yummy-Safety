@@ -1,27 +1,44 @@
-
 <main>
     <section>
         <div class = "region-name">
-            서울
+            <%= restaurants.map(row => row.city)[0] %>
         </div>
-
+        <div class = "gu-name">
+            <%= restaurants.map(row => row.town)[0] %>
+        </div>
         <div class = "ys-list">
             <% restaurants.forEach((restaurant) => { %>
                 <div class = "restaurant-container">
                     <div class = "restaurant-name">
-                        <strong><%= restaurant.name %></strong>
+                        <a href="https://map.naver.com/v5/search/<%= restaurants.map(row => row.town)[0] %> <%= restaurant.name %>"><strong><%= restaurant.name %></strong></a>
                     </div>
 
-                    <div class = "yum-btn">냠</div>
+                    <a href="https://www.naver.com/"><div class = "yum-btn">냠</div></a>
                     <div class = "restaurant-type"><%= restaurant.type_detail %></div>
                     <div class = "restaurant-phoneNum"><%= restaurant.telephone %></div>
-                    <div class = "restaurant-addr"><%= restaurant.address %></div>
-                    <div class = "restaurant-review">HI</div>
+                    <div class = "restaurant-addr"><a href="https://map.naver.com/v5/search/<%= restaurant.address %>"><%= restaurant.address %></a></div>
+                    <a href="https://www.naver.com/"><div class = "restaurant-review">후기</div></a>
                 </div>
-
             <% }); %>
-
         </div>
     </section>
 
 </main>
+<div class="page_wrap">
+    <div class="page_nation">
+        <a class="arrow pprev" href="#"></a>
+        <a class="arrow prev" href="#"></a>
+        <a href="/index?city=<%= restaurants.map(row => row.city)[0] %>&town=<%= restaurants.map(row => row.town)[0] %>&offset=0" class = "active"> 1 </a>
+        <a href="/index?city=<%= restaurants.map(row => row.city)[0] %>&town=<%= restaurants.map(row => row.town)[0] %>&offset=10"> 2 </a>
+        <a href="/index?city=<%= restaurants.map(row => row.city)[0] %>&town=<%= restaurants.map(row => row.town)[0] %>&offset=20"> 3 </a>
+        <a href="/index?city=<%= restaurants.map(row => row.city)[0] %>&town=<%= restaurants.map(row => row.town)[0] %>&offset=30"> 4 </a>
+        <a href="/index?city=<%= restaurants.map(row => row.city)[0] %>&town=<%= restaurants.map(row => row.town)[0] %>&offset=40"> 5 </a>
+        <a href="/index?city=<%= restaurants.map(row => row.city)[0] %>&town=<%= restaurants.map(row => row.town)[0] %>&offset=50"> 6 </a>
+        <a href="/index?city=<%= restaurants.map(row => row.city)[0] %>&town=<%= restaurants.map(row => row.town)[0] %>&offset=60"> 7 </a>
+        <a href="/index?city=<%= restaurants.map(row => row.city)[0] %>&town=<%= restaurants.map(row => row.town)[0] %>&offset=70"> 8 </a>
+        <a href="/index?city=<%= restaurants.map(row => row.city)[0] %>&town=<%= restaurants.map(row => row.town)[0] %>&offset=80"> 9 </a>
+        <a href="/index?city=<%= restaurants.map(row => row.city)[0] %>&town=<%= restaurants.map(row => row.town)[0] %>&offset=90"> 10 </a>
+        <a class="arrow next" href="#"></a>
+        <a class="arrow nnext" href="#"></a>
+    </div>
+</div>

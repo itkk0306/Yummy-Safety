@@ -1,0 +1,59 @@
+ul, li{ 
+    list-style:none;
+    text-align:center;
+    padding:0;
+    margin:0;
+}
+
+#mainWrapper{
+    width: 800px;
+    margin: 0 auto; /*가운데 정렬*/
+}
+
+#mainWrapper > ul > li:first-child {
+    text-align: center;
+    font-size:14pt;
+    height:40px;
+    vertical-align:middle;
+    line-height:30px;
+}
+
+#ulTable {
+    margin-top:10px;
+}
+
+#ulTable > li:first-child > ul > li {
+    background-color:#c9c9c9;
+    padding-left: 10px;
+    font-weight:bold;
+    text-align: left;
+}
+
+#ulTable > li > ul {
+    clear:both;
+    padding:0px auto;
+    position:relative;
+    min-width:40px;
+}
+
+#ulTable > li > ul > li { 
+    float:left;
+    font-size: 0.8em;
+    padding: 5px;
+    border-bottom:1px solid silver;
+    vertical-align:baseline;
+    text-align: left;
+}    
+
+#ulTable > li > ul > li:first-child{
+        width:80%;
+} /*No 열 크기*/
+    
+#ulTable > li > ul > li:first-child +li {
+    width:20%;
+} /*제목 열 크기*/
+
+
+.left {
+    text-align : left;
+}

@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-// Readme db 사용법 https://github.com/kriasoft/node-sqlite#readme
 const db = require("../database");
 const fs = require('fs');
 
@@ -17,7 +16,7 @@ router.get('/', function (req, res, next) {
 
     // 들어오는 값 city, town, offset
     //const sql =`SELECT * FROM restaurants where city = '${req.query.city}'and town ='${req.query.town}' limit 5 offset '${req.query.offset}'`;
-    const sql = `SELECT * FROM restaurants where city = '${req.query.city}' and town ='${req.query.town}' limit 10 offset ${of}`;
+    const sql = `SELECT * FROM restaurants where city = '충청남도' and town ='천안시' limit 10 offset ${of}`;
 
     console.log(req.query.city);
     console.log(req.query.offset);
@@ -32,7 +31,7 @@ router.get('/', function (req, res, next) {
         console.log(rows);
 
 
-        res.render('index', {restaurants: rows});
+        res.render('mainIndex', {restaurants: rows});
     });
 });
 

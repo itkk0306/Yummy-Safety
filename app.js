@@ -5,9 +5,15 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
+const mainIndexRouter = require('./routes/mainIndex');
 const indexRouter = require('./routes/index');
 const aboutRouter = require('./routes/about');
 const selectRegionRouter = require('./routes/selectRegion')
+const noticeRouter = require('./routes/notice');
+const noticeInformRouter = require('./routes/noticeInform');
+const noticeCanceledRouter = require('./routes/noticeCanceled');
+const howToUseRouter = require('./routes/howToUse');
+const howToInquireRouter = require('./routes/howToInquire');
 
 const app = express();
 
@@ -25,9 +31,16 @@ app.use(expressLayouts);
 app.set('layout', 'layout');
 app.set("layout extractScripts", true);
 
-app.use('/', indexRouter);
+//app.use('/', indexRouter);
+app.use('/', mainIndexRouter);
+app.use('/index', indexRouter);
 app.use('/about', aboutRouter);
 app.use('/selectRegion', selectRegionRouter);
+app.use('/notice', noticeRouter);
+app.use('/noticeInform', noticeInformRouter);
+app.use('/noticeCanceled', noticeCanceledRouter);
+app.use('/howToUse', howToUseRouter);
+app.use('/howToInquire', howToInquireRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
