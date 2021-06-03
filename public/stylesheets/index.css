@@ -15,11 +15,14 @@ li {
 
 .header {
     height: 300px;
+    max-width: 100%;
     /*background-color: #FFF2CC;*/
     background-image: url('header.png');
     background-repeat: no-repeat;
     background-attachment: scroll;
+    background-size: cover;
 }
+
 
 .header-text {
     width: 600px;
