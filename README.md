@@ -1,7 +1,10 @@
 # kingkang-express
-킹캉용 express sample
+킹강용 express sample
 
-지연님의 Express 스터디를 돕기 위해 만들어진 프로젝트 입니다.
+최지연의 Express 프로젝트 입니다.
+
+안녕하세요.
+별건 없어요.
 
 <!-- LICENSE -->
 ## License
