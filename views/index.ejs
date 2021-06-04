@@ -13,11 +13,11 @@
                         <a href="https://map.naver.com/v5/search/<%= restaurants.map(row => row.town)[0] %> <%= restaurant.name %>"><strong><%= restaurant.name %></strong></a>
                     </div>
 
-                    <a href="https://www.naver.com/"><div class = "yum-btn">냠</div></a>
+                    <a onclick="alert('냠! 아주 좋아요!')"; return false;><div class = "yum-btn">냠</div></a>
                     <div class = "restaurant-type"><%= restaurant.type_detail %></div>
                     <div class = "restaurant-phoneNum"><%= restaurant.telephone %></div>
                     <div class = "restaurant-addr"><a href="https://map.naver.com/v5/search/<%= restaurant.address %>"><%= restaurant.address %></a></div>
-                    <a href="https://www.naver.com/"><div class = "restaurant-review">후기</div></a>
+                    <a onclick="alert('서비스 준비 중입니다!')"; return false;><div class = "restaurant-review">후기</div></a>
                 </div>
             <% }); %>
         </div>
