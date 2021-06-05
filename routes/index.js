@@ -1,39 +1,40 @@
 import express from "express";
-import db from "../database";
+import db, { query } from "../database";
 
 const router = express.Router();
 
-const fs = require('fs');
+router.get('/', (req, res, next) => {
+  const city = req.query.city;
+  const town = req.query.town;
+  const page = req.query.offset * 10 || 0;
 
-/* GET home page. */
-router.get('/', function (req, res, next) {
+  let sql;
+  if (city && town) {
+    sql = `SELECT * FROM restaurants WHERE city = '${city}' AND town ='${town}' LIMIT 10 OFFSET ${page}`;
+  } else {
+    sql = `SELECT * FROM restaurants LIMIT ${page}, 10`;
+  }
 
-    var of = req.query.offset;
-    console.log("LOG!!!!!  " + of)
-    if (of == undefined) {
-        of = 0;
-    } else {
-        of = req.query.offset;
-    }
+  // LIMIT <skip>, <count>
+  console.log(sql);
 
-    // 들어오는 값 city, town, offset
-    //const sql =`SELECT * FROM restaurants where city = '${req.query.city}'and town ='${req.query.town}' limit 5 offset '${req.query.offset}'`;
-    const sql = `SELECT * FROM restaurants where city = '${req.query.city}' and town ='${req.query.town}' limit 10 offset ${of}`;
+  query(sql,
+    (err) => {
+      res.status(400).json({ "error": err.message });
+    },
+    (rows) => {
 
-    console.log(req.query.city);
-    console.log(req.query.offset);
-
-    console.log(sql);
-    db.all(sql, [], (err, rows) => { //rows 는 결과값
-        if (err) {
-            res.status(400).json({"error": err.message});
-            return;
-        }
-        // console.log(rows.map(row => row.name));
-        console.log(rows);
-
-
-        res.render('index', {restaurants: rows});
+      query('SELECT count(*) as count FROM restaurants', (err) => console.error(err.message),
+        (row) => {
+          res.render("index", {
+            isAll: city && town,
+            city: city,
+            town: town,
+            page: req.query.offset,
+            total: row[0].count,
+            restaurants: rows,
+          });
+        });
     });
 });
 

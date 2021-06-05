@@ -15,4 +15,11 @@ let db = new sqlite3.Database(DBSOURCE, (err) => {
   }
 });
 
+export const query = (sql, onError, onSuccess) => {
+  db.all(sql, [], (err, rows) => {
+    if (err) return onError(err);
+    onSuccess(rows);
+  });
+};
+
 export default db;

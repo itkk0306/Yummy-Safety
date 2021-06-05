@@ -5,7 +5,6 @@ import path from "path";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
 
-import mainIndexRouter from "./routes/mainIndex";
 import indexRouter from "./routes/index";
 import aboutRouter from "./routes/about";
 import noticeRouter from "./routes/notice";
@@ -14,16 +13,6 @@ import noticeInformRouter from "./routes/noticeInform";
 import noticeCanceledRouter from "./routes/noticeCanceled";
 import howToUseRouter from "./routes/howToUse";
 import howToInquireRouter from "./routes/howToInquire";
-
-// const mainIndexRouter = require('./routes/mainIndex');
-// const indexRouter = require('./routes/index');
-// const aboutRouter = require('./routes/about');
-// const noticeRouter = require('./routes/notice');
-// const selectRegionRouter = require('./routes/selectRegion');
-// const noticeInformRouter = require('./routes/noticeInform');
-// const noticeCanceledRouter = require('./routes/noticeCanceled');
-// const howToUseRouter = require('./routes/howToUse');
-// const howToInquireRouter = require('./routes/howToInquire');
 
 const app = express();
 
@@ -41,9 +30,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(expressLayouts);
 
-//app.use('/', indexRouter);
-app.use('/', mainIndexRouter);
-app.use('/index', indexRouter);
+app.use('/', indexRouter);
 app.use('/about', aboutRouter);
 app.use('/selectRegion', selectRegionRouter);
 app.use('/notice', noticeRouter);

@@ -1,44 +1,43 @@
-<main>
-    <section>
-        <div class = "region-name">
-            <%= restaurants.map(row => row.city)[0] %>
-        </div>
-        <div class = "gu-name">
-            <%= restaurants.map(row => row.town)[0] %>
-        </div>
-        <div class = "ys-list">
-            <% restaurants.forEach((restaurant) => { %>
-                <div class = "restaurant-container">
-                    <div class = "restaurant-name">
-                        <a href="https://map.naver.com/v5/search/<%= restaurants.map(row => row.town)[0] %> <%= restaurant.name %>"><strong><%= restaurant.name %></strong></a>
-                    </div>
-
-                    <a onclick="alert('냠! 아주 좋아요!')"; return false;><div class = "yum-btn">냠</div></a>
-                    <div class = "restaurant-type"><%= restaurant.type_detail %></div>
-                    <div class = "restaurant-phoneNum"><%= restaurant.telephone %></div>
-                    <div class = "restaurant-addr"><a href="https://map.naver.com/v5/search/<%= restaurant.address %>"><%= restaurant.address %></a></div>
-                    <a onclick="alert('서비스 준비 중입니다!')"; return false;><div class = "restaurant-review">후기</div></a>
+<section>
+    <div class="region-container">
+        <% if (isAll) { %>
+            <p>#<%= city %> #<%= town %></p>
+        <% } %>
+    </div>
+    <div class="ys-list">
+        <% restaurants.forEach((restaurant) => { %>
+            <div class="restaurant-container">
+                <div class="restaurant-name">
+                    <a href="https://map.naver.com/v5/search/<%= restaurants.map(row => row.town)[0] %> <%= restaurant.name %>"><strong><%= restaurant.name %></strong></a>
                 </div>
-            <% }); %>
-        </div>
-    </section>
 
-</main>
+                <a onclick="alert('냠! 아주 좋아요!')">
+                    <div class="yum-btn">냠</div>
+                </a>
+                <div class="restaurant-type"><%= restaurant.type_detail %></div>
+                <div class="restaurant-phoneNum"><%= restaurant.telephone %></div>
+                <div class="restaurant-addr"><a
+                            href="https://map.naver.com/v5/search/<%= restaurant.address %>"><%= restaurant.address %></a>
+                </div>
+                <a onclick="alert('서비스 준비 중입니다!')">
+                    <div class="restaurant-review">후기</div>
+                </a>
+            </div>
+        <% }); %>
+    </div>
+</section>
+
 <div class="page_wrap">
     <div class="page_nation">
-        <a class="arrow pprev" href="#"></a>
-        <a class="arrow prev" href="#"></a>
-        <a href="/index?city=<%= restaurants.map(row => row.city)[0] %>&town=<%= restaurants.map(row => row.town)[0] %>&offset=0" class = "active"> 1 </a>
-        <a href="/index?city=<%= restaurants.map(row => row.city)[0] %>&town=<%= restaurants.map(row => row.town)[0] %>&offset=10"> 2 </a>
-        <a href="/index?city=<%= restaurants.map(row => row.city)[0] %>&town=<%= restaurants.map(row => row.town)[0] %>&offset=20"> 3 </a>
-        <a href="/index?city=<%= restaurants.map(row => row.city)[0] %>&town=<%= restaurants.map(row => row.town)[0] %>&offset=30"> 4 </a>
-        <a href="/index?city=<%= restaurants.map(row => row.city)[0] %>&town=<%= restaurants.map(row => row.town)[0] %>&offset=40"> 5 </a>
-        <a href="/index?city=<%= restaurants.map(row => row.city)[0] %>&town=<%= restaurants.map(row => row.town)[0] %>&offset=50"> 6 </a>
-        <a href="/index?city=<%= restaurants.map(row => row.city)[0] %>&town=<%= restaurants.map(row => row.town)[0] %>&offset=60"> 7 </a>
-        <a href="/index?city=<%= restaurants.map(row => row.city)[0] %>&town=<%= restaurants.map(row => row.town)[0] %>&offset=70"> 8 </a>
-        <a href="/index?city=<%= restaurants.map(row => row.city)[0] %>&town=<%= restaurants.map(row => row.town)[0] %>&offset=80"> 9 </a>
-        <a href="/index?city=<%= restaurants.map(row => row.city)[0] %>&town=<%= restaurants.map(row => row.town)[0] %>&offset=90"> 10 </a>
-        <a class="arrow next" href="#"></a>
-        <a class="arrow nnext" href="#"></a>
+        <a class="arrow" href="#"><i class="fas fa-angle-double-left"></i></a>
+        <a class="arrow" href="#"><i class="fas fa-angle-left"></i></a>
+        <% Array.from({ length: restaurants.length / 10 }, (_, i) => i).map(i => { %>
+            <a href="/?offset=<%= i %>"
+               class="<%= i === parseInt(page) ? 'active' : '' %>">
+                <%= i + 1 %>
+            </a>
+        <% }); %>
+        <a class="arrow" href="#"><i class="fas fa-angle-right"></i></a>
+        <a class="arrow" href="#"><i class="fas fa-angle-double-right"></i></a>
     </div>
 </div>
