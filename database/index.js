@@ -1,6 +1,7 @@
-// DB를 불러오는 코드들
+// https://github.com/kriasoft/node-sqlite#readme
+import sqlite3 from "sqlite3";
 
-const sqlite3 = require('sqlite3').verbose();
+sqlite3.verbose();
 
 const DBSOURCE = "./database/restaurants.db";
 
@@ -14,4 +15,4 @@ let db = new sqlite3.Database(DBSOURCE, (err) => {
   }
 });
 
-module.exports = db
+export default db;

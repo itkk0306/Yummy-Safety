@@ -17,7 +17,7 @@ li {
     height: 300px;
     max-width: 100%;
     /*background-color: #FFF2CC;*/
-    background-image: url('header.png');
+    background-image: url("../images/header.png");
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-size: cover;

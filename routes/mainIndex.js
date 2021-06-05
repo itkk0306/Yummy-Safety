@@ -1,6 +1,8 @@
-const express = require('express');
+import express from "express";
+import db from "../database";
+
 const router = express.Router();
-const db = require("../database");
+
 const fs = require('fs');
 
 /* GET home page. */
@@ -35,4 +37,4 @@ router.get('/', function (req, res, next) {
     });
 });
 
-module.exports = router;
+export default router;

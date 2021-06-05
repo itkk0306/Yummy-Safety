@@ -2,9 +2,10 @@
   "name": "kingkang-express",
   "version": "0.0.0",
   "private": true,
+  "type": "commonjs",
   "scripts": {
-    "start": "node ./bin/www",
-    "dev-start": "nodemon ./bin/www"
+    "start": "babel-node bin/www.js",
+    "dev-start": "nodemon bin/www.js --exec babel-node"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -18,6 +19,12 @@
     "sqlite3": "^5.0.2"
   },
   "devDependencies": {
+    "@babel/cli": "^7.14.3",
+    "@babel/core": "^7.14.3",
+    "@babel/node": "^7.14.2",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.14.4",
+    "babel-loader": "^8.2.2",
     "nodemon": "^2.0.7"
   }
 }

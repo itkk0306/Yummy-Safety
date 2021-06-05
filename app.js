@@ -1,35 +1,46 @@
-const createError = require('http-errors');
-const expressLayouts = require('express-ejs-layouts');
-const express = require('express');
-const path = require('path');
-const cookieParser = require('cookie-parser');
-const logger = require('morgan');
+import express from "express";
+import createError from "http-errors";
+import expressLayouts from "express-ejs-layouts";
+import path from "path";
+import cookieParser from "cookie-parser";
+import logger from "morgan";
 
-const mainIndexRouter = require('./routes/mainIndex');
-const indexRouter = require('./routes/index');
-const aboutRouter = require('./routes/about');
-const selectRegionRouter = require('./routes/selectRegion')
-const noticeRouter = require('./routes/notice');
-const noticeInformRouter = require('./routes/noticeInform');
-const noticeCanceledRouter = require('./routes/noticeCanceled');
-const howToUseRouter = require('./routes/howToUse');
-const howToInquireRouter = require('./routes/howToInquire');
+
+import mainIndexRouter from "./routes/mainIndex";
+import indexRouter from "./routes/index";
+import aboutRouter from "./routes/about";
+import noticeRouter from "./routes/notice";
+import selectRegionRouter from "./routes/selectRegion";
+import noticeInformRouter from "./routes/noticeInform";
+import noticeCanceledRouter from "./routes/noticeCanceled";
+import howToUseRouter from "./routes/howToUse";
+import howToInquireRouter from "./routes/howToInquire";
+
+// const mainIndexRouter = require('./routes/mainIndex');
+// const indexRouter = require('./routes/index');
+// const aboutRouter = require('./routes/about');
+// const noticeRouter = require('./routes/notice');
+// const selectRegionRouter = require('./routes/selectRegion');
+// const noticeInformRouter = require('./routes/noticeInform');
+// const noticeCanceledRouter = require('./routes/noticeCanceled');
+// const howToUseRouter = require('./routes/howToUse');
+// const howToInquireRouter = require('./routes/howToInquire');
 
 const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.set('layout', 'layout');
+app.set("layout extractScripts", true);
 
+// settings
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(expressLayouts);
-
-app.set('layout', 'layout');
-app.set("layout extractScripts", true);
 
 //app.use('/', indexRouter);
 app.use('/', mainIndexRouter);
@@ -43,12 +54,12 @@ app.use('/howToUse', howToUseRouter);
 app.use('/howToInquire', howToInquireRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use((req, res, next) => {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use((err, req, res, next) => {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
@@ -58,4 +69,4 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+export default app;
