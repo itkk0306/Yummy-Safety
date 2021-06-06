@@ -31,9 +31,10 @@
     <div class="page_nation">
         <a class="arrow" href="#"><i class="fas fa-angle-double-left"></i></a>
         <a class="arrow" href="#"><i class="fas fa-angle-left"></i></a>
-        <% Array.from({ length: restaurants.length / 10 }, (_, i) => i).map(i => { %>
+        <% const pivot = parseInt(offset / 100); %>
+        <% Array.from({ length: total / 10 }, (_, i) => i).filter(i => pivot * 10 <= i && i < (pivot + 1) * 10).map(i => { %>
             <a href="/?offset=<%= i %>"
-               class="<%= i === parseInt(page) ? 'active' : '' %>">
+               class="<%= i === parseInt(offset / 10) ? 'active' : '' %>">
                 <%= i + 1 %>
             </a>
         <% }); %>
