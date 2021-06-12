@@ -1,0 +1,13 @@
+<section>
+    <div class="menu-name"><%= title %></div>
+    <div class="notice-content">
+        <div class="title-container">
+            <div class="notice-title"><%= notice.title %></div>
+            <div class="notice-day"><%= notice.created_at %></div>
+            <div class="notice-main"><%- notice.content.replace(/\/n/g, "<br />") %></div>
+        </div>
+    </div>
+    <a href="/notice?category=<%= notice.category_id %>&categoryName=<%= title %>">
+        <button class="btn">목록</button>
+    </a>
+</section>

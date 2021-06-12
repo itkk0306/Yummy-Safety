@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
     <title>Yummy Safety</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
-    <link rel="stylesheet" href ="./stylesheets/application.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+          integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/application.css">
 </head>
 <body>
 <header>
@@ -22,7 +23,7 @@
 </header>
 
 <nav>
-    <div class = "nav">
+    <div class="nav">
         <ul>
             <li><a href="/about">안심식당이란?</a></li>
             <li><a href="/selectRegion">지역 선택</a></li>
@@ -31,33 +32,33 @@
     </div>
 </nav>
 <main>
-<section>
-    <%- body %>
+    <section>
+        <%- body %>
 
-</section>
+    </section>
 </main>
 <footer>
-    <div class= "footer-menu">
+    <div class="footer-menu">
 
     </div>
 </footer>
 </body>
 <script type="text/javascript">
-    console.log("HELLO JS!")
-    /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
-    var dropdown = document.getElementsByClassName("dropdown-btn");
-    var i;
+  console.log("HELLO JS!")
+  /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+  var dropdown = document.getElementsByClassName("dropdown-btn");
+  var i;
 
-    for (i = 0; i < dropdown.length; i++) {
-        dropdown[i].addEventListener("click", function () {
-            this.classList.toggle("active");
-            var dropdownContent = this.nextElementSibling;
-            if (dropdownContent.style.display === "block") {
-                dropdownContent.style.display = "none";
-            } else {
-                dropdownContent.style.display = "block";
-            }
-        });
-    }
+  for (i = 0; i < dropdown.length; i++) {
+    dropdown[i].addEventListener("click", function () {
+      this.classList.toggle("active");
+      var dropdownContent = this.nextElementSibling;
+      if (dropdownContent.style.display === "block") {
+        dropdownContent.style.display = "none";
+      } else {
+        dropdownContent.style.display = "block";
+      }
+    });
+  }
 </script>
 </html>

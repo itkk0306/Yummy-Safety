@@ -9,10 +9,6 @@ import indexRouter from "./routes/index";
 import aboutRouter from "./routes/about";
 import noticeRouter from "./routes/notice";
 import selectRegionRouter from "./routes/selectRegion";
-import noticeInformRouter from "./routes/noticeInform";
-import noticeCanceledRouter from "./routes/noticeCanceled";
-import howToUseRouter from "./routes/howToUse";
-import howToInquireRouter from "./routes/howToInquire";
 
 const app = express();
 
@@ -27,17 +23,13 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '/public')));
 app.use(expressLayouts);
 
 app.use('/', indexRouter);
 app.use('/about', aboutRouter);
 app.use('/selectRegion', selectRegionRouter);
 app.use('/notice', noticeRouter);
-app.use('/noticeInform', noticeInformRouter);
-app.use('/noticeCanceled', noticeCanceledRouter);
-app.use('/howToUse', howToUseRouter);
-app.use('/howToInquire', howToInquireRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

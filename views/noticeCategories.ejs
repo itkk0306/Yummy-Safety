@@ -1,0 +1,33 @@
+<main>
+    <section>
+        <div class="menu-name"><%= title %></div>
+        <div id="mainWrapper">
+            <ul>
+                <li>
+                    <ul id="ulTable">
+                        <li>
+                            <ul>
+                                <li>제목</li>
+                                <li>작성일</li>
+                            </ul>
+                        </li>
+                        <% notices.forEach((notice) => { %>
+                            <li>
+                                <ul>
+                                    <li class="left">
+                                        <% if (notice.content) { %>
+                                            <a href="/notice/<%= notice.id %>?categoryName=<%= title %>"><%= notice.title %></a>
+                                        <% } else { %>
+                                            <a href="#"><%= notice.title %></a>
+                                        <% } %>
+                                    </li>
+                                    <li><%= notice.created_at %></li>
+                                </ul>
+                            </li>
+                        <% }); %>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </section>
+</main>

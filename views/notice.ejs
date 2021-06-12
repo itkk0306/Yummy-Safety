@@ -1,17 +1,12 @@
 <section>
-    <div class = "menu-name">
+    <div class="menu-name">
         공지사항
     </div>
     <div class="sidenav">
-        <a href = "/noticeInform">
-            <button class="dropdown-btn">
-                알립니다
-            </button>
-        </a>
-        <a href = "/noticeCanceled">
-            <button class="dropdown-btn">
-                취소된 안심식당
-            </button>
-        </a>
+        <% noticeCategories.forEach((noticeCategory) => { %>
+            <a href="/notice?category=<%= noticeCategory.id %>&categoryName=<%= noticeCategory.name %>">
+                <button class="dropdown-btn"><%= noticeCategory.name %></button>
+            </a>
+        <% }); %>
     </div>
 </section>
